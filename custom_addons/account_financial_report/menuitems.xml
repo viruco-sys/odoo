@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <menuitem
+        id="menu_oca_reports_root"
+        name="Informes OCA"
+        sequence="50"
+        web_icon="account_financial_report,static/description/icon.png"
+        groups="account.group_account_user"
+    />
+
+    <menuitem
+        id="menu_oca_reports_sub"
+        name="Informes Financieros"
+        parent="menu_oca_reports_root"
+        sequence="10"
+        groups="account.group_account_user"
+    />
+
+    <menuitem
+        parent="menu_oca_reports_sub"
+        action="action_general_ledger_wizard"
+        id="menu_general_ledger_wizard"
+        sequence="10"
+    />
+    <menuitem
+        parent="menu_oca_reports_sub"
+        action="action_journal_ledger_wizard"
+        id="menu_journal_ledger_wizard"
+        sequence="15"
+    />
+    <menuitem
+        parent="menu_oca_reports_sub"
+        action="action_trial_balance_wizard"
+        id="menu_trial_balance_wizard"
+        sequence="20"
+    />
+    <menuitem
+        parent="menu_oca_reports_sub"
+        action="action_open_items_wizard"
+        id="menu_open_items_wizard"
+        sequence="30"
+    />
+    <menuitem
+        parent="menu_oca_reports_sub"
+        action="action_aged_partner_balance_wizard"
+        id="menu_aged_partner_balance_wizard"
+        sequence="40"
+    />
+
+</odoo>

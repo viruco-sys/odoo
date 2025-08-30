@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- 
+        Este template hereda del reporte de cotización de compra estándar de Odoo
+        para realizar modificaciones visuales significativas.
+        ID Heredado: purchase.report_purchasequotation_document
+    -->
+    <template id="report_purchasequotation_document_madenat" inherit_id="purchase.report_purchasequotation_document">
+        
+        <!-- 1. Elimina la columna "Fecha Prevista" por completo (cabecera y datos) -->
+        <xpath expr="//th[@name='th_expected_date']" position="replace"/>
+        <xpath expr="//span[@t-field='order_line.date_planned']/.." position="replace"/>
+
+        <!-- 2. Elimina la columna "Cantidad" por completo (cabecera y datos) -->
+        <xpath expr="//th[@name='th_quantity']" position="replace"/>
+        <xpath expr="//span[@t-field='order_line.product_qty']/.." position="replace"/>
+
+        <!-- 3. Centra el texto de la cabecera "Descripción" -->
+        <xpath expr="//th[@name='th_description']" position="attributes">
+            <attribute name="class">text-center</attribute>
+        </xpath>
+
+        <!-- 
+            4. Reemplaza el contenido de la celda de "Producto".
+            El objetivo es mostrar únicamente los atributos de la variante del producto,
+            eliminando el nombre base del producto para evitar duplicados.
+        -->
+        <xpath expr="//td[@id='product']" position="replace">
+            <td id="product" class="text-center">
+                <strong>
+                    <!-- 
+                        Toma el nombre completo de la línea (ej: "Producto A (Color: Rojo)")
+                        y le quita el nombre del producto ("Producto A"), dejando solo los atributos 
+                        (ej: "(Color: Rojo)"). El .strip() elimina espacios sobrantes.
+                    -->
+                    <span t-esc="order_line.name.replace(order_line.product_id.product_tmpl_id.name, ' ').strip()"/>
+                </strong>
+            </td>
+        </xpath>
+
+    </template>
+</odoo>
