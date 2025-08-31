@@ -1,0 +1,14 @@
+[options]
+# Esta es la contraseña maestra para crear y gestionar bases de datos. ¡Elígela bien!
+admin_passwd = ini
+# Rutas a los módulos (addons). La ruta a tus módulos personalizados va PRIMERO.
+
+addons_path = /opt/odoo18/custom_addons,/opt/odoo18/addons
+# Datos de conexión a la base de datos
+db_host = localhost
+db_port = 5432
+db_user = viruco
+db_password = False
+
+# Puerto en el que se ejecutará el servidor de Odoo
+xmlrpc_port = 8069
