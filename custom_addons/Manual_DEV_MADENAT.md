@@ -95,3 +95,7 @@ git config user.email "mauricio.seo@gmail.com"
 2.  **Añadir cambios al commit:** `git add .`
 3.  **Crear el commit:** `git commit -m "feat: Añadir nueva funcionalidad X"`
 4.  **Subir a GitHub:** `git push origin main`
+<<<<<<< Updated upstream
+=======
+# Prueba de herramientas Prueba de herramientas Manual
+>>>>>>> Stashed changes
