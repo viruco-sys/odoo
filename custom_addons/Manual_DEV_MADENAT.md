@@ -30,7 +30,7 @@ admin_passwd = Manatar#2020$
 ; Conexión a la base de datos PostgreSQL
 db_host = localhost
 db_port = 5432
-db_user = viruco-sys
+db_user = viruco
 db_password = False
 
 ; Puerto del servidor Odoo
