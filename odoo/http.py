@@ -244,6 +244,9 @@ DEFAULT_MAX_CONTENT_LENGTH = 128 * 1024 * 1024  # 128MiB
 if geoip2:
     GEOIP_EMPTY_COUNTRY = geoip2.models.Country({})
     GEOIP_EMPTY_CITY = geoip2.models.City({})
+else:
+    GEOIP_EMPTY_COUNTRY = None
+    GEOIP_EMPTY_CITY = None
 
 # The request mimetypes that transport JSON in their body.
 JSON_MIMETYPES = ('application/json', 'application/json-rpc')
@@ -1222,7 +1225,12 @@ class GeoIP(collections.abc.Mapping):
 
     @property
     def country_name(self):
-        return self.country.name or self.continent.name
+        try:
+            # geoip2 v3+
+            return (self.country.names or {}).get('en') or (self.continent.names or {}).get('en')
+        except AttributeError:
+            # geoip2 v2
+            return self.country.name or self.continent.name
 
     @property
     def country_code(self):

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <record id="uom_mbf" model="uom.uom">
+            <field name="name">MBF (Thousand Board Feet)</field>
+            <field name="category_id" ref="uom.product_uom_categ_vol"/>
+            <field name="uom_type">bigger</field>
+            <field name="factor_inv">2.3597372</field> <!-- 1 MBF = 2.3597372 m³ -->
+            <field name="rounding">0.000001</field>
+        </record>
+
+    </data>
+</odoo>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_product_template_lumber_form" model="ir.ui.view">
+        <field name="name">product.template.lumber.form.inherit</field>
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='group_standard_price']" position="after">
+                <group string="Métricas de Madera" name="madenat_lumber_group" groups="stock.group_stock_manager" col="2">
+                    
+                    <!-- Activar madera y seleccionar unidad -->
+                    <group>
+                        <field name="is_madenat_lumber"/>
+                        <field name="madenat_lumber_uom_id" 
+                               invisible="not is_madenat_lumber"
+                               options="{'no_create': True, 'no_open': True}"/>
+                    </group>
+
+                    <!-- Dimensiones -->
+                    <group string="Dimensiones" name="lumber_dimensions_group" invisible="not is_madenat_lumber" col="2">
+                        <field name="madenat_length" string="Largo (m)"/>
+                        <field name="madenat_width" string="Ancho (mm)"/>
+                        <field name="madenat_thickness" string="Espesor (mm)"/>
+                    </group>
+
+                    <!-- Volumen Calculado -->
+                    <group string="Volumen Calculado" name="calculated_volume_group" invisible="not is_madenat_lumber">
+                        <field name="madenat_volume_calculated" string="Volumen Calculado (Unidad Seleccionada)" readonly="1"/>
+                    </group>
+
+                    <!-- Volúmenes Estándar -->
+                    <group string="Volúmenes en Unidades Estándar" name="standard_volumes_group" invisible="not is_madenat_lumber" col="2">
+                        <field name="madenat_volume_m3" readonly="1"/>
+                        <field name="madenat_volume_mbf" readonly="1"/>
+                    </group>
+
+                </group>
+            </xpath>
+        </field>
+    </record>
+</odoo>
