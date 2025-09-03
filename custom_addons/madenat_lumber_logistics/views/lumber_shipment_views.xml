@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- VISTA FORM - ESTRUCTURA SIMPLIFICADA Y CORREGIDA -->
+    <record id="view_lumber_shipment_form" model="ir.ui.view">
+        <field name="name">lumber.shipment.form</field>
+        <field name="model">lumber.shipment</field>
+        <field name="arch" type="xml">
+            <form string="Embarque">
+                <sheet>
+                    <!-- HEADER SIMPLIFICADO -->
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name" class="oe_inline"/>
+                        </h1>
+                    </div>
+                    
+                    <!-- GRUPOS SEPARADOS - ESTRUCTURA PLANA -->
+                    <group col="2">
+                        <group string="Información Básica">
+                            <field name="picking_id"/>
+                            <field name="partner_id"/>
+                            <field name="fecha_embarque"/>
+                        </group>
+                        
+                        <group string="Datos Logísticos">
+                            <field name="motonave"/>
+                            <field name="reserva_nro"/>
+                            <field name="bl_nro"/>
+                        </group>
+                    </group>
+                    
+                    <!-- SEPARADOR -->
+                    <separator string="Totales"/>
+                    
+                    <!-- GRUPO DE TOTALES -->
+                    <group col="2">
+                        <field name="total_piezas"/>
+                        <field name="total_m3"/>
+                    </group>
+                </sheet>
+                
+                <!-- CHATTER -->
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!-- VISTA LIST (antes llamada TREE) -->
+    <record id="view_lumber_shipment_list" model="ir.ui.view">
+        <field name="name">lumber.shipment.list</field>
+        <field name="model">lumber.shipment</field>
+        <field name="arch" type="xml">
+            <list string="Embarques">
+                <field name="name"/>
+                <field name="picking_id"/>
+                <field name="partner_id"/>
+                <field name="fecha_embarque"/>
+                <field name="motonave"/>
+                <field name="total_m3"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ACCIÓN - SIMPLIFICADA -->
+    <record id="action_lumber_shipment" model="ir.actions.act_window">
+        <field name="name">Embarques</field>
+        <field name="res_model">lumber.shipment</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- MENÚS -->
+    <menuitem
+        id="menu_lumber_root"
+        name="Logística Maderera"
+        parent="stock.menu_stock_root"
+        sequence="50"/>
+
+    <menuitem
+        id="menu_lumber_shipment"
+        name="Embarques"
+        parent="menu_lumber_root"
+        action="action_lumber_shipment"
+        sequence="10"/>
+</odoo>

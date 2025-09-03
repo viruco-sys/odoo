@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="madenat_lumber_logistics.list">
+      <field name="name">madenat_lumber_logistics list</field>
+      <field name="model">madenat_lumber_logistics.madenat_lumber_logistics</field>
+      <field name="arch" type="xml">
+        <list>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </list>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="madenat_lumber_logistics.action_window">
+      <field name="name">madenat_lumber_logistics window</field>
+      <field name="res_model">madenat_lumber_logistics.madenat_lumber_logistics</field>
+      <field name="view_mode">list,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="madenat_lumber_logistics.action_server">
+      <field name="name">madenat_lumber_logistics server</field>
+      <field name="model_id" ref="model_madenat_lumber_logistics_madenat_lumber_logistics"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "list,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="madenat_lumber_logistics" id="madenat_lumber_logistics.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="madenat_lumber_logistics.menu_1" parent="madenat_lumber_logistics.menu_root"/>
+    <menuitem name="Menu 2" id="madenat_lumber_logistics.menu_2" parent="madenat_lumber_logistics.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="madenat_lumber_logistics.menu_1_list" parent="madenat_lumber_logistics.menu_1"
+              action="madenat_lumber_logistics.action_window"/>
+    <menuitem name="Server to list" id="madenat_lumber_logistics" parent="madenat_lumber_logistics.menu_2"
+              action="madenat_lumber_logistics.action_server"/>
+-->
+  </data>
+</odoo>

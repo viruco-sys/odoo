@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_stock_lot_form_madenat" model="ir.ui.view">
+        <field name="name">stock.lot.form.madenat</field>
+        <field name="model">stock.lot</field>
+        <field name="inherit_id" ref="stock.view_production_lot_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//notebook" position="inside">
+                <page string="Datos Madenat" name="madenat_data">
+                    <group>
+                        <group string="Dimensiones">
+                            <field name="x_espesor_mm"/>
+                            <field name="x_ancho_mm"/>
+                            <field name="x_largo_m"/>
+                            <field name="x_piezas"/>
+                        </group>
+                        <group string="Información del Proveedor">
+                            <field name="x_proveedor_id"/>
+                            <field name="x_paquete_proveedor_nro"/>
+                        </group>
+                        <group string="Volúmenes Calculados">
+                            <field name="x_volumen_m3" readonly="1"/>
+                            <field name="x_volumen_mbf" readonly="1"/>
+                        </group>
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

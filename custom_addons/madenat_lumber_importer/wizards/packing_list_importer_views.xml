@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Action Window for the Wizard -->
+    <record id="action_packing_list_importer" model="ir.actions.act_window">
+        <field name="name">Importar Packing List</field>
+        <field name="res_model">madenat.packing.list.importer</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+
+    <!-- Menu Item -->
+    <menuitem 
+        id="menu_packing_list_importer"
+        name="Importar Packing List"
+        parent="stock.menu_stock_root" 
+        action="action_packing_list_importer"
+        sequence="100"/>
+
+    <!-- Form View for the Wizard -->
+    <record id="view_packing_list_importer_form" model="ir.ui.view">
+        <field name="name">madenat.packing.list.importer.form</field>
+        <field name="model">madenat.packing.list.importer</field>
+        <field name="arch" type="xml">
+            <form string="Importar Packing List">
+                <group>
+                    <field name="file_data" filename="file_name"/>
+                    <field name="file_name" invisible="1"/>
+                    <field name="purchase_order_id"/>
+                    <field name="picking_type_id"/>
+                </group>
+                <footer>
+                    <button name="action_import" string="Importar" type="object" class="btn-primary"/>
+                    <button string="Cancelar" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+</odoo>
