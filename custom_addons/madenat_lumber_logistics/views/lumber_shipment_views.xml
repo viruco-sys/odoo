@@ -6,44 +6,47 @@
         <field name="model">lumber.shipment</field>
         <field name="arch" type="xml">
             <form string="Embarque">
-                <sheet>
-                    <!-- HEADER SIMPLIFICADO -->
-                    <div class="oe_title">
-                        <h1>
-                            <field name="name" class="oe_inline"/>
-                        </h1>
-                    </div>
-                    
-                    <!-- GRUPOS SEPARADOS - ESTRUCTURA PLANA -->
-                    <group col="2">
-                        <group string="Información Básica">
-                            <field name="picking_id"/>
-                            <field name="partner_id"/>
-                            <field name="fecha_embarque"/>
+                <!-- PROPUESTA: Layout con chatter a la derecha -->
+                <div class="oe_form_container">
+                    <div class="oe_form_sheet">
+                        <!-- HEADER SIMPLIFICADO -->
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" class="oe_inline"/>
+                            </h1>
+                        </div>
+                        
+                        <!-- GRUPOS PARA DOS COLUMNAS -->
+                        <group>
+                            <group>
+                                <separator string="Información Básica"/>
+                                <field name="picking_id"/>
+                                <field name="partner_id"/>
+                                <field name="fecha_embarque"/>
+                            </group>
+                            <group>
+                                <separator string="Datos Logísticos"/>
+                                <field name="motonave"/>
+                                <field name="reserva_nro"/>
+                                <field name="bl_nro"/>
+                            </group>
                         </group>
                         
-                        <group string="Datos Logísticos">
-                            <field name="motonave"/>
-                            <field name="reserva_nro"/>
-                            <field name="bl_nro"/>
+                        <!-- SEPARADOR -->
+                        <separator string="Totales"/>
+                        
+                        <!-- GRUPO DE TOTALES -->
+                        <group col="2">
+                            <field name="total_piezas"/>
+                            <field name="total_m3"/>
                         </group>
-                    </group>
-                    
-                    <!-- SEPARADOR -->
-                    <separator string="Totales"/>
-                    
-                    <!-- GRUPO DE TOTALES -->
-                    <group col="2">
-                        <field name="total_piezas"/>
-                        <field name="total_m3"/>
-                    </group>
-                </sheet>
-                
-                <!-- CHATTER -->
-                <div class="oe_chatter">
-                    <field name="message_follower_ids"/>
-                    <field name="activity_ids"/>
-                    <field name="message_ids"/>
+                    </div>
+                    <!-- CHATTER A LA DERECHA -->
+                    <div class="oe_chatter_position">
+                        <field name="message_follower_ids"/>
+                        <field name="activity_ids"/>
+                        <field name="message_ids"/>
+                    </div>
                 </div>
             </form>
         </field>
