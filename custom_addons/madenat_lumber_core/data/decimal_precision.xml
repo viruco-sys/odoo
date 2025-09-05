@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <!-- Precisión para volúmenes de madera -->
+        <record id="decimal_precision_volume_madera" model="decimal.precision">
+            <field name="name">Volume Madera</field>
+            <field name="digits">3</field>
+        </record>
+    </data>
+</odoo>

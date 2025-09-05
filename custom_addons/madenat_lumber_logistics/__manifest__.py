@@ -9,6 +9,7 @@
     'depends': [
         'stock',
         'madenat_lumber_core',
+        'web',
     ],
     'data': [
         'security/ir.model.access.csv',

@@ -1,29 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="view_stock_lot_form_madenat" model="ir.ui.view">
-        <field name="name">stock.lot.form.madenat</field>
+    <record id="view_madenat_stock_lot_form" model="ir.ui.view">
+        <field name="name">madenat.stock.lot.form</field>
         <field name="model">stock.lot</field>
         <field name="inherit_id" ref="stock.view_production_lot_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//notebook" position="inside">
-                <page string="Datos Madenat" name="madenat_data">
-                    <group>
-                        <group string="Dimensiones">
-                            <field name="x_espesor_mm"/>
-                            <field name="x_ancho_mm"/>
-                            <field name="x_largo_m"/>
-                            <field name="x_piezas"/>
-                        </group>
-                        <group string="Información del Proveedor">
-                            <field name="x_proveedor_id"/>
-                            <field name="x_paquete_proveedor_nro"/>
-                        </group>
-                        <group string="Volúmenes Calculados">
-                            <field name="x_volumen_m3" readonly="1"/>
-                            <field name="x_volumen_mbf" readonly="1"/>
-                        </group>
+            <!-- Eliminar la pestaña de Descripción -->
+            <xpath expr="//page[@name='description']" position="replace">
+            </xpath>
+            
+            <!-- Agregar los campos de madera directamente en la vista principal -->
+            <xpath expr="//sheet" position="inside">
+                <!-- Campo Nota (equivalente a descripción) -->
+                <group>
+                    <field name="note" placeholder="Notas del lote..."/>
+                </group>
+                
+                <group string="Datos Madenat">
+                    <group string="Dimensiones">
+                        <field name="x_espesor_mm"/>
+                        <field name="x_ancho_mm"/>
+                        <field name="x_largo_m"/>
+                        <field name="x_piezas"/>
                     </group>
-                </page>
+                    <group string="Información del Proveedor">
+                        <field name="x_proveedor_id" options="{'no_quick_create': True}" style="width: 100%"/>
+                        <field name="x_paquete_proveedor_nro"/>
+                    </group>
+                    <group string="Volúmenes Calculados">
+                        <field name="x_volumen_m3" digits="[16, 3]"/>
+                        <field name="x_volumen_mbf" digits="[16, 3]"/>
+                    </group>
+                </group>
             </xpath>
         </field>
     </record>

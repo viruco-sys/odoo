@@ -12,6 +12,9 @@
     'data': [
         'security/ir.model.access.csv',
         'data/ir_sequence_data.xml',
+        'data/decimal_precision.xml', 
+        'data/res_config_settings_data.xml',
+        'data/stock_lot_actions.xml',
         'views/stock_lot_views.xml',
     ],
     'installable': True,
